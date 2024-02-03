@@ -115,10 +115,9 @@ COMMANDS
 
 SYSTEMD
 
-save the following it in /etc/systems/system/zbot.service and
-replace "<user>" with the user running pipx
-
 ::
+    save the following it in /etc/systems/system/zbot.service and
+    replace "<user>" with the user running pipx
 
     [Unit]
     Description=python3 irc bot
@@ -136,14 +135,12 @@ replace "<user>" with the user running pipx
     [Install]
     WantedBy=multi-user.target
 
-then run this
-
-::
+    then run this
 
     $ mkdir ~/.zbot
     $ sudo systemctl enable zbot --now
 
-default channel/server is #zbot on localhost
+    default channel/server is #zbot on localhost
 
 FILES
 
