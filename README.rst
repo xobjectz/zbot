@@ -1,10 +1,13 @@
 NAME
 
+::
+
     ZBOT - python3 irc bot
 
 
 DESCRIPTION
 
+::
     ZBOT is a python3 irc bot, it can connect to IRC, fetch and display RSS
     feeds, take todo notes, keep a shopping list and log text. You can also
     copy/paste the service file and run it under systemd for 24/7 presence
@@ -155,8 +158,12 @@ FILES
 
 AUTHOR
 
+::
+
     Bart Thate <objx@proton.me>
 
 COPYRIGHT
+
+::
 
     ZBOT is Public Domain.
