@@ -6,9 +6,6 @@
 "modules"
 
 
-import sys
-
-
 from . import cmd, err, fnd, irc, log, mod, rss, rst, tdo, thr, tmr, udp
 
 

@@ -4,7 +4,29 @@
 # pylint: disable=C,R,W0212,W0611,W0613,W0105,E0401,E0402
 
 
-"python3 irc bot"
+"""ZBOT - python3 irc bot
+
+zbot <cmd> [key=val] [key==val] [mod=n1,n2]
+zbot [-a] [-c] [-d] [-h] [-v] [-w]
+
+$ zbot 
+cmd,err,fnd,irc,log,mod,rss,tdo,thr,tmr,rst,udp
+
+$ zbot cmd
+cfg,cmd,dbg,dne,dpl,err,fnd,ftc,log,mod,mre,nme,pwd,rem,rss,tdo,thr,tmr,udp
+
+options:
+
+-a     load all modules
+-c     start console
+-d     start daemon
+-h     display help
+-v     use verbose
+-w     wait for services
+
+example:
+
+$ zbot -cav mod=log,tdo,thr"""
 
 
 import getpass
@@ -27,7 +49,7 @@ from botl import cdir, cmnd, debug, forever, launch, parse_cmd, scan, spl
 
 
 Cfg         = Default()
-Cfg.mod     = "cmd,irc,rss,mod"
+Cfg.mod     = "cmd,flt,irc,rss,mod,thr"
 Cfg.name    = "zbot"
 Cfg.wd      = os.path.expanduser(f"~/.{Cfg.name}")
 Cfg.pidfile = os.path.join(Cfg.wd, f"{Cfg.name}.pid")
@@ -126,7 +148,6 @@ def main():
         Cfg.mod = ",".join(zbot.__dir__())
     if mods:
         Cfg.mod += "," + ",".join(mods.__dir__())
-    print(Cfg.mod)
     if "v" in Cfg.opts:
         Error.output = print
         dte = time.ctime(time.time()).replace("  ", " ")

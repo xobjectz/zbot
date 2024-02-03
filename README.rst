@@ -9,7 +9,17 @@ SYNOPSIS
 ::
 
     zbot <cmd> [key=val] [key==val]
-    zbot [-a] [-c] [-d] [-h] [-v] 
+    zbot [-a] [-c] [-d] [-h] [-v] [-w]
+
+    options are:
+
+    -a     load all modules
+    -c     start console
+    -d     start daemon
+    -h     display help
+    -v     use verbose
+    -w     wait for services
+
 
 DESCRIPTION
 
@@ -52,11 +62,11 @@ USAGE
     $ zbot mod
     cmd,err,fnd,irc,log,mod,req,rss,tdo,thr
 
+    use -c to start a console
+
+    $ zbot -c
+
     use mod=<name1,name2> to load additional modules
-
-    $ zbot cfg mod=irc
-
-    start a console
 
     $ zbot -c mod=irc,rss
     >
@@ -67,15 +77,13 @@ USAGE
     ZBOT started CV started Sat Dec 2 17:53:24 2023
     >
 
-    start daemon
-
-    $ zbot -d
-    $ 
-
 
 CONFIGURATION
 
 ::
+
+    $ zbot cfg 
+    channel=#zbot commands=True nick=zbot port=6667 server=localhost
 
     irc
 
