@@ -116,6 +116,7 @@ COMMANDS
 SYSTEMD
 
 ::
+
     save the following it in /etc/systems/system/zbot.service and
     replace "<user>" with the user running pipx
 
@@ -145,6 +146,7 @@ SYSTEMD
 FILES
 
 ::
+
     ~/.zbot
     ~/.local/bin/zbot
     ~/.local/pipx/venvs/zbot/
