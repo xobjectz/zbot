@@ -4,6 +4,13 @@ NAME
 
     ZBOT - python3 irc bot
 
+SYNOPSIS
+
+::
+
+    zbot <cmd> [key=val] [key==val]
+    zbot [-a] [-c] [-d] [-h] [-v] 
+
 DESCRIPTION
 
 ::
@@ -25,13 +32,6 @@ DESCRIPTION
     method names. This makes storing and reading to/from json possible.
 
     ZBOT is Public Domain.
-
-SYNOPSIS
-
-::
-
-    zbot <cmd> [key=val] [key==val]
-    zbot [-a] [-c] [-d] [-h] [-v] 
 
 USAGE
 
