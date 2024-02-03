@@ -15,6 +15,9 @@ cmd,err,fnd,irc,log,mod,rss,tdo,thr,tmr,rst,udp
 $ zbot cmd
 cfg,cmd,dbg,dne,dpl,err,fnd,ftc,log,mod,mre,nme,pwd,rem,rss,tdo,thr,tmr,udp
 
+bart@done:~/zbot$ bin/zbot cfg
+channel=#zbot commands=True nick=zbot port=6667 server=localhost
+
 options:
 
 -a     load all modules
@@ -23,10 +26,7 @@ options:
 -h     display help
 -v     use verbose
 -w     wait for services
-
-example:
-
-$ zbot -cav mod=log,tdo,thr"""
+"""
 
 
 import getpass
