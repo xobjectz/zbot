@@ -8,7 +8,7 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "zbot"
 description = "python3 irc bot"
-version = "1"
+version = "100"
 authors = [
     {name = "Bart Thate",email = "objx@proton.me"},
 ]
@@ -28,7 +28,7 @@ classifiers = [
 
 [project.urls]
 "home" = "https://pypi.org/project/zbot"
-"bugs" = "https://github.com/xobjectz/botz/issues"
+"bugs" = "https://github.com/xobjectz/zbot/issues"
 "source" = "https://github.com/xobjectz/zbot"
 
 [tool.setuptools]

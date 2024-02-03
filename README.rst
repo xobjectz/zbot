@@ -1,91 +1,104 @@
-python3 irc bot
+NAME
 
-BOTZ is a python3 irc bot, it can connect to IRC, fetch and display RSS
-feeds, take todo notes, keep a shopping list and log text. You can also
-copy/paste the service file and run it under systemd for 24/7 presence
-in a IRC channel.
+    ZBOT - python3 irc bot
 
-BOTZ users BOTL, containing all the python3 code to program a unix cli
-program, such as disk perisistence for configuration files, event handler
-to handle the client/server connection, code to introspect modules for
-commands, deferred exception handling to not crash on an error, a parser to parse commandline options and values, etc.
 
-BOTZ uses OBJX, an module that allows for easy json save//load
-to/from disk of objects. It provides an "clean namespace" Object class
-that only has dunder methods, so the namespace is not cluttered with
-method names. This makes storing and reading to/from json possible.
+DESCRIPTION
 
-BOTZ is Public Domain.
+    ZBOT is a python3 irc bot, it can connect to IRC, fetch and display RSS
+    feeds, take todo notes, keep a shopping list and log text. You can also
+    copy/paste the service file and run it under systemd for 24/7 presence
+    in a IRC channel.
+
+    ZBOT users BOTL, containing all the python3 code to program a unix cli
+    program, such as disk perisistence for configuration files, event handler
+    to handle the client/server connection, code to introspect modules for
+    commands, deferred exception handling to not crash on an error, a parser
+    to parse commandline options and values, etc.
+
+    ZBOT uses OBJX, an module that allows for easy json save//load
+    to/from disk of objects. It provides an "clean namespace" Object class
+    that only has dunder methods, so the namespace is not cluttered with
+    method names. This makes storing and reading to/from json possible.
+
+    ZBOT is Public Domain.
 
 SYNOPSIS
 
-    botz <cmd> [key=val] [key==val]
-    botz [-a] [-c] [-d] [-h] [-v] 
+::
+
+    zbot <cmd> [key=val] [key==val]
+    zbot [-a] [-c] [-d] [-h] [-v] 
 
 USAGE
 
-without any argument the program does nothing
+::
 
-    $ botz
+    without any argument the program does nothing
+
+    $ zbot
     $
 
 
-see list of commands
+    see list of commands
 
-    $ botz cmd
+    $ zbot cmd
     cmd,err,mod,req,thr,ver
 
 
-list of modules
+    list of modules
 
-    $ botz mod
+    $ zbot mod
     cmd,err,fnd,irc,log,mod,req,rss,tdo,thr
 
 
-use mod=<name1,name2> to load additional modules
+    use mod=<name1,name2> to load additional modules
 
-    $ botz cfg mod=irc
+    $ zbot cfg mod=irc
 
 
-start a console
+    start a console
 
-    $ botz -c mod=irc,rss
+    $ zbot -c mod=irc,rss
     >
 
+    use -v for verbose
 
-use -v for verbose
-
-    $ botz -cv mod=irc
-    BOTL started CV started Sat Dec 2 17:53:24 2023
+    $ zbot -cv mod=irc
+    ZBOT started CV started Sat Dec 2 17:53:24 2023
     >
 
+    start daemon
 
-start daemon
-
-    $ botz -d
+    $ zbot -d
     $ 
+
 
 CONFIGURATION
 
-irc
+::
 
-    $ botz cfg server=<server>
-    $ botz cfg channel=<channel>
-    $ botz cfg nick=<nick>
+    irc
 
-sasl
+    $ zbot cfg server=<server>
+    $ zbot cfg channel=<channel>
+    $ zbot cfg nick=<nick>
 
-    $ botz pwd <nsvnick> <nspass>
-    $ botz cfg password=<frompwd>
+    sasl
 
-rss
+    $ zbot pwd <nsvnick> <nspass>
+    $ zbot cfg password=<frompwd>
 
-    $ botz rss <url>
-    $ botz dpl <url> <item1,item2>
-    $ botz rem <url>
-    $ botz nme <url> <name>
+    rss
+
+    $ zbot rss <url>
+    $ zbot dpl <url> <item1,item2>
+    $ zbot rem <url>
+    $ zbot nme <url> <name>
 
 COMMANDS
+
+::
 
     cmd - commands
     cfg - irc configuration
@@ -103,8 +116,10 @@ COMMANDS
 
 SYSTEMD
 
-save the following it in /etc/systems/system/botz.service and
+save the following it in /etc/systems/system/zbot.service and
 replace "<user>" with the user running pipx
+
+::
 
     [Unit]
     Description=python3 irc bot
@@ -115,8 +130,8 @@ replace "<user>" with the user running pipx
     Type=simple
     User=<user>
     Group=<user>
-    WorkingDirectory=/home/<user>/.botz
-    ExecStart=/home/<user>/.local/pipx/venvs/botz/bin/botz -d
+    WorkingDirectory=/home/<user>/.zbot
+    ExecStart=/home/<user>/.local/pipx/venvs/zbot/bin/zbot -d
     RemainAfterExit=yes
 
     [Install]
@@ -124,16 +139,19 @@ replace "<user>" with the user running pipx
 
 then run this
 
-    $ mkdir ~/.botz
-    $ sudo systemctl enable botz --now
+::
 
-default channel/server is #botz on localhost
+    $ mkdir ~/.zbot
+    $ sudo systemctl enable zbot --now
+
+default channel/server is #zbot on localhost
 
 FILES
 
-    ~/.botz
-    ~/.local/bin/botz
-    ~/.local/pipx/venvs/botz/
+::
+    ~/.zbot
+    ~/.local/bin/zbot
+    ~/.local/pipx/venvs/zbot/
 
 AUTHOR
 
@@ -141,4 +159,4 @@ AUTHOR
 
 COPYRIGHT
 
-    BOTL is Public Domain.
+    ZBOT is Public Domain.
