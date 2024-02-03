@@ -42,23 +42,19 @@ USAGE
     $ zbot
     $
 
-
     see list of commands
 
     $ zbot cmd
     cmd,err,mod,req,thr,ver
-
 
     list of modules
 
     $ zbot mod
     cmd,err,fnd,irc,log,mod,req,rss,tdo,thr
 
-
     use mod=<name1,name2> to load additional modules
 
     $ zbot cfg mod=irc
-
 
     start a console
 
