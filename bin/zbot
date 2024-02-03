@@ -37,6 +37,7 @@ Storage.wd  = Cfg.wd
 
 import zbot
 
+
 if os.path.exists("mods"):
     import mods
 else:
@@ -124,7 +125,8 @@ def main():
     if "a" in Cfg.opts:
         Cfg.mod = ",".join(zbot.__dir__())
     if mods:
-        Cfg.mod += ",".join(mods.__dir__())
+        Cfg.mod += "," + ",".join(mods.__dir__())
+    print(Cfg.mod)
     if "v" in Cfg.opts:
         Error.output = print
         dte = time.ctime(time.time()).replace("  ", " ")
