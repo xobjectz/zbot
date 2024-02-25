@@ -138,6 +138,14 @@ def main():
         from . import __doc__ as txt
         print(txt)
         return
+    if "d" in Cfg.opts:
+        Cfg.mod = ",".join(mods.__dir__())
+        Cfg.user = getpass.getuser()
+        daemon(Cfg.pidfile, "v" in Cfg.opts)
+        privileges(Cfg.user)
+        scan(mods, Cfg.mod, True, Cfg.dis, True)
+        forever()
+        return
     if "c" in Cfg.opts:
         scan(mods, Cfg.mod, True, Cfg.sets.dis, True)
         csl = Console()
@@ -150,13 +158,6 @@ def main():
         Cfg.mod = ",".join(mods.__dir__())
         scan(mods, Cfg.mod, False, Cfg.sets.dis, False)
         return cmnd(Cfg.otxt, print)
-    Cfg.mod = ",".join(mods.__dir__())
-    Cfg.user = getpass.getuser()
-    daemon(Cfg.pidfile, "v" in Cfg.opts)
-    privileges(Cfg.user)
-    scan(mods, Cfg.mod, True, Cfg.dis, True)
-    forever()
-
 
 def wrapped():
     wrap(main)

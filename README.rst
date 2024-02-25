@@ -4,6 +4,7 @@ NAME
 
     ZBOT - python3 irc bot
 
+
 SYNOPSIS
 
 ::
@@ -18,7 +19,6 @@ SYNOPSIS
     -d     start daemon
     -h     display help
     -v     use verbose
-    -w     wait for services
 
 
 DESCRIPTION
@@ -117,7 +117,6 @@ COMMANDS
     mre - displays cached output
     pwd - sasl nickserv name/pass
     rem - removes a rss feed
-    req - reconsider
     rss - add a feed
     thr - show the running threads
 
