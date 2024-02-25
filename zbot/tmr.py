@@ -1,6 +1,6 @@
 # This file is placed in the Public Domain.
 #
-# pylint: disable=C,R,W0612.W0702
+# pylint: disable=C,R,W0612.W0702,E0402
 
 
 "timer"
@@ -9,12 +9,9 @@
 import time
 
 
-from objx import update
-from botl import Broker, Event, Timer
-from botl import find, launch, sync
-
-
-from botl.parsers import NoDate, laps, today, to_day, get_day, get_hour
+from objx import find, sync, update
+from botl import Broker, Message, Timer, launch
+from botl import NoDate, get_day, get_hour, laps, today, to_day
 
 
 def init():
@@ -24,7 +21,7 @@ def init():
         diff = float(obj.time) - time.time()
         if diff > 0:
             bot = Broker.first()
-            evt = Event()
+            evt = Message()
             update(evt, obj)
             evt.orig = object.__repr__(bot)
             timer = Timer(diff, evt.show)
@@ -50,7 +47,7 @@ def tmr(event):
         if word.startswith("+"):
             try:
                 seconds = int(word[1:])
-            except:
+            except (ValueError, IndexError):
                 event.reply("%s is not an integer" % seconds)
                 return
         else:

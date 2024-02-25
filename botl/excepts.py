@@ -1,9 +1,9 @@
 # This file is placed in the Public Domain.
 #
-# pylint: disable=C,R,W0125,E0402,E1102
+# pylint: disable=C,R,W0125,W0622,E0402,E1102
 
 
-"exceptions"
+"deferred exception handling"
 
 
 import io
@@ -16,7 +16,8 @@ from objx import Object
 def __dir__():
     return (
         'Error',
-        'debug'
+        'debug',
+        'enable'
     )
 
 
@@ -50,7 +51,7 @@ class Error(Object):
         return res
 
     @staticmethod
-    def handle(exc):
+    def out(exc):
         if Error.output:
             txt = str(Error.format(exc))
             Error.output(txt)
@@ -58,7 +59,7 @@ class Error(Object):
     @staticmethod
     def show():
         for exc in Error.errors:
-            Error.handle(exc)
+            Error.out(exc)
 
     @staticmethod
     def skip(txt):
@@ -71,3 +72,8 @@ class Error(Object):
 def debug(txt):
     if Error.output and not Error.skip(txt):
         Error.output(txt)
+
+
+def enable(out):
+    Error.output = out
+    
